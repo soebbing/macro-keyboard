@@ -105,7 +105,6 @@ void setup() {
   Keyboard.begin();
 }
 
-
 void loop() {
   char key = keypad.getKey();
   checkModeButton();
@@ -120,11 +119,13 @@ void loop() {
         switch (key) {
           case '1': // Open kitty terminal
             Keyboard.press(KEY_LEFT_GUI);
+            delay(50);
             Keyboard.print("/");
             Keyboard.release(KEY_LEFT_GUI);
             
-            delay(50);
+            delay(100);
             Keyboard.print("kitty");
+            delay(50);
             Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print("1");
             break;
@@ -184,38 +185,47 @@ void loop() {
       if (key) {
         Serial.println(key);
         switch (key) {
-          case '1': Keyboard.write(32);                          //Space Bar
+          case '1':
+            Keyboard.write(32);                           //Space Bar
             break;
 
-          case '2': Keyboard.press(KEY_LEFT_CTRL);
+          case '2':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print('r');                          //Verify
             break;
 
-          case '3': Keyboard.press(KEY_LEFT_CTRL);
+          case '3':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print('u');                          //Upload
             break;
 
-          case '4': Keyboard.press(KEY_LEFT_CTRL);
+          case '4':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.press(KEY_LEFT_SHIFT);
             Keyboard.print('m');                          //Serial Monitor
             break;
 
-          case '5': Keyboard.press(KEY_LEFT_CTRL);
+          case '5':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print('c');                          //Copy
             break;
 
-          case '6': Keyboard.press(KEY_LEFT_CTRL);
+          case '6':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print('v');                          //Paste
             break;
 
-          case '7': Keyboard.press(KEY_LEFT_CTRL);
+          case '7':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print('/');                          //Comment / Uncomment
             break;
 
-          case '8': Keyboard.press(KEY_LEFT_CTRL);
+          case '8':
+            Keyboard.press(KEY_LEFT_CTRL);
             Keyboard.print('f');                          //Find
             break;
         }
+
         delay(50);
         Keyboard.releaseAll(); // this releases the buttons
       }
@@ -292,13 +302,12 @@ void loop() {
             Keyboard.release('r');
             delay(50); //give your system time to catch up with these android-speed keyboard presses
             Keyboard.println("chrome"); delay(500);
-            Keyboard.println("https://en.wikipedia.org/wiki/Special:Random"); break;
-
+            Keyboard.println("https://en.wikipedia.org/wiki/Special:Random");
+            break;
 
           case '3': Keyboard.press(KEY_LEFT_GUI); delay(50);
             Keyboard.release(KEY_LEFT_GUI); delay(400);
             Keyboard.println("mag"); delay(200);
-
             break;
 
           case '4': Keyboard.write(32); break; //smashing that space bar
